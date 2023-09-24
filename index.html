@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Курсы</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div v-if="currentPage === 'home'">
+            <h2 v-for="course in courses" @click="openCourse(course)">{{ course.name }}</h2>
+        </div>
+        <div v-if="currentPage === 'course'">
+            <button @click="goBack()">Назад</button>
+            <h2>{{ currentCourse.name }}</h2>
+            <h3 v-for="subcourse in currentCourse.subcourses" @click="openSubcourse(subcourse)">{{ subcourse.name }}</h3>
+        </div>
+        <div v-if="currentPage === 'subcourse'">
+            <button @click="goBack()">Назад</button>
+            <h2>{{ currentSubcourse.name }}</h2>
+            <h3 v-for="lesson in currentSubcourse.lessons" @click="openLesson(lesson)">{{ lesson.name }}</h3>
+        </div>
+        <div v-if="currentPage === 'lesson'">
+            <button @click="goBack()">Назад</button>
+            <h2>{{ currentLesson.name }}</h2>
+            <iframe :src="getYoutubeEmbedUrl(currentLesson.videoId)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2, h3 {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-bottom: 20px;
+}
+
+video {
+    width: 100%;
+    max-width: 600px;
+}
