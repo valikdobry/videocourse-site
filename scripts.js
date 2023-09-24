@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     el: "#app",
     data: {
       currentPage: "home",
-      courses: [annansuomicourse],
+      courses: [annansuomicourse, IvanPetrichenkoWEB],
       currentCourse: null,
       currentSubcourse: null,
       currentLesson: null,
