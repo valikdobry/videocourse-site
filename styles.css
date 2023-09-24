@@ -1,17 +1,80 @@
-body {
-    font-family: Arial, sans-serif;
+@font-face {
+  font-family: "Calibri";
+  src: url("./calibri.ttf");
 }
 
-h2, h3 {
-    cursor: pointer;
-    margin-bottom: 10px;
+body {
+  font-family: "Calibri", sans-serif;
+  background: #fff;
+}
+
+.main {
+  width: 703px;
+  height: 862px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: #b0b0b0;
+  box-shadow: 0px 4px 41px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+  top: 44px;
+  left: 609px;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.main::-webkit-scrollbar {
+  width: 0vh;
+}
+
+.main::-webkit-scrollbar {
+  height: 0vh;
+}
+
+h2,
+h3 {
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+  font-family: Calibri;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 button {
-    margin-bottom: 20px;
+  width: 142px;
+  height: 29px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #d9d9d9;
+  border: none;
+  margin-bottom: 20px;
+  color: #808080;
+  font-family: Calibri;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 video {
-    width: 100%;
-    max-width: 600px;
+  width: 100%;
+  max-width: 600px;
 }
+
+iframe {
+  width: 635px;
+  height: 351px;
+  flex-shrink: 0;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
