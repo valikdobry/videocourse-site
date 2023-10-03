@@ -15,42 +15,55 @@
 
 body {
   font-family: "Calibri", sans-serif;
+  overflow: hidden;
 }
 
-.main {
-  width: 1236.094px;
-  height: 879px;
-  flex-shrink: 0;
-  background: #f5f4f6;
-  box-shadow: 0px 17.16797px 103.00781px 0px rgba(178, 178, 178, 0.12);
+#app {
+  width: 103%;
+  height: 100%;
   position: relative;
-  top: 29px;
-  left: 346px;
-  display: flex;
+  top: -13px;
+  left: -23px;
   border-radius: 12px;
-  justify-content: center;
 }
 
-.main .box {
-  width: 546px;
-  height: 766px;
-  flex-shrink: 0;
-  position: relative;
-  top: 66px;
-  left: 0px;
+.flex {
+  width: 1920px;
+  height: 822px;
+  flex-wrap: wrap;
   display: flex;
-  border-radius: 12.018px;
-  background: #fff;
-  justify-content: center;
+}
+
+.home {
+  position: relative;
+  top: 0px;
+  left: 0px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.main .box::-webkit-scrollbar {
+.home h1 {
+  justify-content: center;
+  display: flex;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+/* .main #app {
+  width: 1803px;
+  height: 741px;
+  flex-shrink: 0;
+  position: relative;
+  top: 0px;
+  left: 0px;
+} */
+
+.home::-webkit-scrollbar {
   width: 0vh;
 }
 
-.main .box::-webkit-scrollbar {
+.home::-webkit-scrollbar {
   height: 0vh;
 }
 
@@ -65,6 +78,22 @@ h3 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+.course3 h2 {
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: #000;
+  text-align: center;
+  font-family: Calibri;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+  width: 129px;
+  top: 0px;
+  left: 656px;
 }
 
 button {
@@ -86,15 +115,202 @@ button {
   display: flex;
 }
 
-video {
-  width: 100%;
-  max-width: 600px;
+.btn {
+  position: relative;
+  top: 0px;
+  left: 0px;
 }
 
-iframe {
-  width: 635px;
-  height: 351px;
+/* 
+video {
+  width: 100%;
+  max-width: 1000px;
+} */
+
+.course3 iframe {
+  width: 1313px;
+  height: 750px;
   flex-shrink: 0;
+  position: relative;
+  top: 115px;
+  left: -270px;
+}
+
+.course1 {
+  width: 515px;
+  height: 235px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  border: 1px solid #eee;
+  background: #d6effa;
+  margin-left: 27px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.course1:hover {
+  box-shadow: 0px 4px 200px 0px rgba(0, 0, 0, 0.25);
+}
+
+.course1 button:hover {
+  box-shadow: 0px 4px 200px 0px rgba(0, 0, 0, 0.25);
+  background: #E2E2E2;
+}
+
+.course1 h2 {
+  width: 348px;
+  color: #000;
+  font-family: Calibri;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+  top: -7px;
+  left: 12px;
+  text-align: left;
+}
+
+.course1 p {
+  color: #000;
+  font-family: Calibri;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  top: -52px;
+  left: 19px;
+  margin-bottom: -18px;
+}
+
+.course1 button {
+  width: 133px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #fcfcfc;
+  color: #000;
+  font-family: Calibri;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 61px;
+  left: 15px;
+  cursor: pointer;
+}
+
+.course2 button {
+  width: 133px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #b0b0b0;
+  color: #000;
+  font-family: Calibri;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 22px;
+  left: 15px;
+  cursor: pointer;
+}
+
+.course2 button:hover {
+  box-shadow: 0px 4px 200px 0px rgba(0, 0, 0, 0.25);
+}
+
+.course2 {
+  width: 1920px;
+  height: 953px;
+  background: white;
+  position: relative;
+  top: 6px;
+  left: 14px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.course2 p {
+  position: relative;
+  top: 0px;
+  left: 929px;
+}
+
+.course2::-webkit-scrollbar {
+  width: 0vh;
+}
+
+.course2::-webkit-scrollbar {
+  height: 0vh;
+}
+
+.course3 button {
+  width: 133px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #b0b0b0;
+  color: #000;
+  font-family: Calibri;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 22px;
+  left: 312px;
+  cursor: pointer;
+  margin-left: 18px;
+}
+
+
+
+.course3 button:hover {
+  box-shadow: 0px 4px 200px 0px rgba(0, 0, 0, 0.25);
+}
+
+.course3 {
+  width: 1920px;
+  height: 953px;
+  background: white;
+  position: relative;
+  top: 6px;
+  left: -55px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+}
+
+.course3 p {
+  position: relative;
+  top: 0px;
+  left: 929px;
+}
+
+.course3::-webkit-scrollbar {
+  width: 0vh;
+}
+
+.course3::-webkit-scrollbar {
+  height: 0vh;
+}
+
+.course3 .task {
   position: relative;
   top: 0px;
   left: 0px;

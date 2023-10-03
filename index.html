@@ -1,61 +1,80 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Курсы</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="bg"></div>
-    <div class="main">
-      <div class="box">
-        <div id="app">
-          <div v-if="currentPage === 'home'">
-            <h2 v-for="course in courses" @click="openCourse(course)">
-              {{ course.name }}
-            </h2>
-          </div>
-          <div v-if="currentPage === 'course'">
-            <button @click="goBack()">Назад</button>
-            <h2>{{ currentCourse.name }}</h2>
-            <h3
-              v-for="subcourse in currentCourse.subcourses"
-              @click="openSubcourse(subcourse)"
-            >
-              {{ subcourse.name }}
-            </h3>
-          </div>
-          <div v-if="currentPage === 'subcourse'">
-            <button @click="goBack()">Назад</button>
-            <h2>{{ currentSubcourse.name }}</h2>
-            <h3
-              v-for="lesson in currentSubcourse.lessons"
-              @click="openLesson(lesson)"
-            >
-              {{ lesson.name }}
-            </h3>
-          </div>
-          <div v-if="currentPage === 'lesson'">
-            <button @click="goBack()">Назад</button>
-            <h2>{{ currentLesson.name }}</h2>
-            <div v-for="assignment in currentLesson.assignments">
-              <a :href="assignment.url" target="_blank">
-                <button>{{ assignment.name }}</button>
-              </a>
-              <iframe
-                :src="getYoutubeEmbedUrl(currentLesson.videoId)"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Курсы</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div id="app">
+    <div v-if="currentPage === 'home'" class="home">
+      <h1>Список Курсов</h1>
+      <div class="flex">
+        <div class="course1" v-for="course in courses" @click="openCourse(course)">
+          <h2>{{ course.name }}</h2>
+          <button @click="openCourse(course)">Открыть</button>
+          <p>{{ course.subcourses.length }} модулей</p>
+          <p>{{ getTotalLessons(course) }} уроков</p>
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="courses/AnnanSuomiCourse.js"></script>
-    <script src="courses/IvanPetrichenkoWEB.js"></script>
-    <script src="scripts.js"></script>
-  </body>
+    <div v-if="currentPage === 'course'">
+      <div class="course2">
+        <button @click="goBack()">Назад</button>
+        <h2>{{ currentCourse.name }}</h2>
+        <h3>{{ currentCourse.subtitle }}</h3>
+        <div v-for="subcourse in currentCourse.subcourses" @click="openSubcourse(subcourse)">
+          <h3>{{ subcourse.name }}</h3>
+          <p>{{ subcourse.lessons.length }} уроков</p>
+        </div>
+      </div>
+    </div>
+    <div v-if="currentPage === 'subcourse'">
+      <div class="course2">
+        <button class="btn" @click="goBack()">Назад</button>
+        <h2>{{ currentSubcourse.name }}</h2>
+        <h3 v-for="lesson in currentSubcourse.lessons" @click="openLesson(lesson)">
+          {{ lesson.name }}
+        </h3>
+      </div>
+    </div>
+    <div v-if="currentPage === 'lesson'">
+      <div class="course3">
+        <button @click="goBack()">Назад</button>
+        <button v-if="previousLesson" @click="openLesson(previousLesson)">
+          Предыдущий урок
+        </button>
+        <button v-if="nextLesson" @click="openLesson(nextLesson)">
+          Следующий урок
+        </button>
+        <button v-for="assignment in currentLesson.assignments" @click="opentask(task)">
+          Задания
+        </button>
+        <h2>{{ currentLesson.name }}</h2>
+        <iframe :src="getYoutubeEmbedUrl(currentLesson.videoId)" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div v-if="currentPage === 'task'">
+      <div class="course2">
+        <button @click="goBack()">Назад</button>
+      </div>
+      <div v-for="assignment in currentLesson.assignments">
+        <a :href="assignment.url" target="_blank">
+          <button>{{ assignment.name }}</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="courses/AnnanSuomiCourse.js"></script>
+  <script src="courses/IvanPetrichenkoWEB.js"></script>
+  <script src="courses/course2.js"></script>
+  <script src="scripts.js"></script>
+</body>
+
 </html>
